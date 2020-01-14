@@ -4,6 +4,7 @@ BOARD_SIZE = 3
 
 def start_game():
     game_board = [[0,0,0],[0,0,0],[0,0,0]]
+    return game_board
 
 def print_board(board):
     count = 1
