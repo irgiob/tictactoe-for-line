@@ -45,7 +45,7 @@ def callback():
         abort(400)
 
     return 'OK'
-JOIN_TEXT = 'Welcome to the Tic-Tac-Toe LINE BOT!  To start, simply type \'start\' to start a game of Tic-Tac-Toe, then simply type the position (e.g  \'2 1\') to place a piece in the board.''
+JOIN_TEXT = 'Welcome to the Tic-Tac-Toe LINE BOT!  To start, simply type \'start\' to start a game of Tic-Tac-Toe, then simply type the position (e.g  \'2 1\') to place a piece in the board.'
 LEAVE_TEXT = 'Thank you for playing, bye-bye!'
 games = []
 
