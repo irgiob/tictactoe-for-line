@@ -97,7 +97,7 @@ def handle_text_message(event):
                             TextSendMessage(text=output))
                     else:
                         AI_move = AI_choose(games[userID])
-                        games[userID] = play_round(games[userID],-1,move)
+                        games[userID] = play_round(games[userID],-1,AI_move)
                         if check_win(games[userID],-1) == True or is_full(games[userID]) == True:
                             output = print_board(games[userID])
                             games.pop(userID)
@@ -108,6 +108,13 @@ def handle_text_message(event):
                             line_bot_api.reply_message(
                                 event.reply_token,
                                 TextSendMessage(text=output))
+                        else:
+                            output = print_board(games[userID])
+                            output += f'You picked {move}, AI picked {AI_move}, type \'row col\' where you want to place your next piece.'
+                            line_bot_api.reply_message(
+                                event.reply_token,
+                                TextSendMessage(text=output))
+
             elif len(move) != 2:
                 line_bot_api.reply_message(
                     event.reply_token,
