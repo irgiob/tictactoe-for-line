@@ -53,7 +53,7 @@ NEW_TEXT = ''' Welcome to the Tic-Tac-Toe LINE BOT!
 FOLLOW_TEXT = 'You can also add me to groups, and play with your friends!'
 LEAVE_TEXT = 'Thank you for playing, bye-bye!'
 games = []
-
+'''
 @handler.add(FollowEvent)
 def new_follower(event):
     line_bot_api.reply_message(
@@ -62,16 +62,19 @@ def new_follower(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=FOLLOW_TEXT))
-
+'''
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    txt = event.message.text
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.message.text))
+    '''txt = event.message.text
     if txt == 'start':
         board = start_game()
         output = print_board(board)
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=output))
+            TextSendMessage(text=output))'''
     '''
     if txt == 'start':
         game_num = len(games)
