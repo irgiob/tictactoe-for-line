@@ -62,6 +62,6 @@ def print_board(board):
 # AI chooses where to play randomly (will update with proper AI)
 def AI_choose(board):
     move = [randint(1,3), randint(1,3)]
-    while is_invalid_move(board, move) == True:
+    while is_invalid_move(board, move) > 0:
         move = [randint(1,3), randint(1,3)]
     return move
