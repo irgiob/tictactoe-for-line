@@ -44,7 +44,7 @@ def is_invalid_move(board, move):
 # convert board data to board string for export
 def print_board(board):
     count = 1
-    output = '    1    2   3  \n  -----------\n'
+    output = '    1    2   3  \n  --------------\n'
     for i in range(BOARD_SIZE):
         output += f'{count} '
         count += 1
@@ -56,7 +56,7 @@ def print_board(board):
                 output += 'x '
             elif board[i][j] > 0:
                 output += 'o '
-        output += '|\n  -----------\n'
+        output += '|\n  --------------\n'
     return output
 
 # AI chooses where to play randomly (will update with proper AI soon)
