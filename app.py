@@ -53,8 +53,13 @@ games = {}
 def handle_text_message(event):
     txt = str(event.message.text).lower()
     move = [int(num) for num in txt.split() if num.isdigit()]
-    
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=txt))
     if isinstance(event.source, SourceUser):
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='Made it to here!'))
         userID = str(event.SourceUser.user_id.text)
         if txt == 'start':
             if not (userID in games):
