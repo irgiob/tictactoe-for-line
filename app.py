@@ -53,6 +53,10 @@ games = {}
 def handle_text_message(event):
     txt = str(event.message.text).lower()
     move = [int(num) for num in txt.split() if num.isdigit()]
+    user = str(event.source.user_id.text)
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=user))
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=txt))
