@@ -20,5 +20,4 @@ def print_board(board):
             elif board[i][j] > 0:
                 output += 'O '
         output += '|\n  -------------\n'
-    }
     return output
