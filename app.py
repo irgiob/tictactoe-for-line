@@ -55,7 +55,7 @@ def handle_text_message(event):
     move = [int(num) for num in txt.split() if num.isdigit()]
     
     if isinstance(event.source, SourceUser):
-        userID = str(event.SourceUser.user_id)
+        userID = str(event.source.user_id)
         if txt == 'start':
             if not (userID in games):
                 games[userID] = start_game()
