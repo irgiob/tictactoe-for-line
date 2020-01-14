@@ -85,12 +85,12 @@ def handle_text_message(event):
                         TextSendMessage(text='Space already filled, try again.'))
                 else:
                     games[userID] = play_round(games[userID],1,move)
-                    if check_win(board,1) == True or is_full(board) == True:
+                    if check_win(games[userID],1) == True or is_full(games[userID]) == True:
                         output = print_board(games[userID])
                         games.pop(userID)
-                        if check_win(board,1) == True:
+                        if check_win(games[userID],1) == True:
                             output += 'You win!\nGame Over. Thanks for playing!'
-                        elif is_full(board) == True:
+                        elif is_full(games[userID]) == True:
                             output += 'It\'s a tie!\nGame Over. Thanks for playing!'
                         line_bot_api.reply_message(
                             event.reply_token,
@@ -98,12 +98,12 @@ def handle_text_message(event):
                     else:
                         AI_move = AI_choose(games[userID])
                         games[userID] = play_round(games[userID],-1,move)
-                        if check_win(board,-1) == True or is_full(board) == True:
+                        if check_win(games[userID],-1) == True or is_full(games[userID]) == True:
                             output = print_board(games[userID])
                             games.pop(userID)
-                            if check_win(board,-1) == True:
+                            if check_win(games[userID],-1) == True:
                                 output += 'AI wins!\nGame Over. Thanks for playing!'
-                            elif is_full(board) == True:
+                            elif is_full(games[userID]) == True:
                                 output += 'It\'s a tie!\nGame Over. Thanks for playing!'
                             line_bot_api.reply_message(
                                 event.reply_token,
