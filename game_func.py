@@ -44,7 +44,7 @@ def is_invalid_move(board, move):
 # convert board data to board string for export
 def print_board(board):
     count = 1
-    output = '    1   2   3  \n  -----------\n'
+    output = '    1    2   3  \n  -----------\n'
     for i in range(BOARD_SIZE):
         output += f'{count} '
         count += 1
@@ -59,7 +59,7 @@ def print_board(board):
         output += '|\n  -----------\n'
     return output
 
-# AI chooses where to play randomly (will update with proper AI)
+# AI chooses where to play randomly (will update with proper AI soon)
 def AI_choose(board):
     move = [randint(1,3), randint(1,3)]
     while is_invalid_move(board, move) > 0:
