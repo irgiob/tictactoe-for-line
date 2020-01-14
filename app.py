@@ -51,11 +51,11 @@ games = {}
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    txt = event.message.text
+    txt = event.message.text.lower()
     move = [int(num) for num in txt.split() if num.isdigit()]
-
+    
     if isinstance(event.source, SourceUser):
-        userID = event.source.user_id.text
+        userID = event.SourceUser.user_id.text
         if txt == 'start':
             if not (userID in games):
                 games[userID] = start_game()
